@@ -17,5 +17,5 @@ int main (void)
 void Menu (void)
 {
   printf("Seleccione una opcion:\n");
-  printf("1. Imprimir en orden\n 2. Buscar palabra\n 3.Salir\n");
+  printf("1. A\n 2. B\n 3.Salir\n");
 }
