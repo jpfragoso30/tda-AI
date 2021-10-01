@@ -16,6 +16,6 @@ typedef struct _metadato* Metadato;
 //Constructor
 Metadato addMetadato(size_t n_metadatos);
 void setMetadato(Metadato emp_metadato);
-void deleteMetadato(Metadato del_metadato);
+Metadato deleteMetadato(Metadato del_metadato);
 
 #endif
