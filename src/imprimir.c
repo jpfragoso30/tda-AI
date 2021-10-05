@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libs/vector.h"
+#include "../libs/table.h"
 
 void printTable(Table *myTable)
 {
