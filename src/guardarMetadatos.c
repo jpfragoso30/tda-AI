@@ -1,17 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// #include "../libs/metadatos.h" typedef que va a ser Metadatos
+#include "./Metadata.c"
 
-// Suponiendo que Metadatos tiene la forma:
-struct _metadatos
-{
-    char **columna;
-    char **tipo;
-    size_t n_metadatos;
-};
-
-Metadatos guardarMetadatos(Metadatos nuevosMetadatos, size_t n_metadatos)
+Metadato guardarMetadatos(Metadato nuevosMetadatos, size_t n_metadatos)
 {
     char *nombreArchivo = NULL;
     FILE *archivo = NULL;
@@ -43,12 +35,12 @@ FILE *abrirArchivo(char *nombreArchivo)
     }
 }
 
-FILE *escribirArchivo(FILE *archivo, Metadatos nuevosMetadatos, size_t n_metadatos)
+FILE *escribirArchivo(FILE *archivo, Metadato nuevosMetadatos, size_t n_metadatos)
 {
     for (int i = 0; i < n_metadatos; i++)
     {
         char *datoEntrante = NULL;
-        datoEntrante = malloc((strlen(nuevosMetadatos->columna[i]) + 1 + strlen(nuevosMetadatos->tipo[i]) + 1) * 1(typeof(char *)));
+        datoEntrante = malloc((strlen(nuevosMetadatos->columna[i]) + 1 + strlen(nuevosMetadatos->tipo[i]) + 1) * 1 * sizeof(char *));
 
         datoEntrante = strcat(nuevosMetadatos->columna[i], ',');
         datoEntrante = strcat(datoEntrante, nuevosMetadatos->tipo[i]);
