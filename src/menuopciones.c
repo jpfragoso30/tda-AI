@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "./Metadata.c"
 
 //Incluir archivos .c y .h
 
@@ -23,7 +24,7 @@ int main (void)
     {
       case 1:
       //Imprimir
-      printf("Insert printing function here\n");
+      printTable(myTable);
       break;
       case 2:
       //Modificar tabla, incluye agregar y eliminar metadato
@@ -52,7 +53,7 @@ int main (void)
       break;
       case 3:
       //Guardar tabla
-      printf("Insert Save function here\n");
+      guardarMetadatos(nuevosMetadatos,n_metadatos);
       break;
     }
   }while (option != 4);

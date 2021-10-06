@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libs/table.h"
+#include "./Metadata.c"
 
 void printTable(Table *myTable)
 {
