@@ -43,12 +43,10 @@ Metadato deleteMetadato(Metadato del_metadato, char *columna){
             return del_metadato;
         }
 
-        if(strcmp(del_metadato->columna[i],'\0') == 0){
-            printf("Columna vacía \n");
-            return del_metadato;
-        }
-
     }
+
+    printf("Columna no encontrada\n");
+    return del_metadato;
     
 }
 
