@@ -5,31 +5,54 @@
 #include "./Metadata.c"
 
 Metadato addMetadato(size_t n_metadatos){
-    char tipo[] = "FLOAT";
+    
     Metadato new_meta = NULL;
     new_meta = malloc(sizeof(struct _metadato)); 
 
     //Validación
     if(!new_meta) return NULL;
 
-    new_meta->contenido = calloc(n_metadatos,sizeof(float));
-    new_meta->contenido = calloc(n_metadatos,sizeof(tipo));
     new_meta->n_metadatos = n_metadatos;
     
-
     return new_meta;
 }
 
 void setMetadato(Metadato emp_metadato){
     for(size_t i = 0; i < emp_metadato->n_metadatos; i++){
-        emp_metadato->tipo[i] = "FLOAT";
-        printf("Contenido: \n");
-        scanf("%f", &emp_metadato->contenido[i]);
+
+        printf("Columna: \n");
+        scanf("%s", &emp_metadato->columna[i]);
+
+        printf("Tipo: \n");
+        scanf("%s", &emp_metadato->tipo[i]);
     }
 }
 
-Metadato deleteMetadato(Metadato del_metadato){
-    free(del_metadato);
-    del_metadato = NULL;
-    return del_metadato;
+Metadato deleteMetadato(Metadato del_metadato, char *columna){
+
+    if(!del_metadato){
+        printf("Metadato vacío \n");
+        return del_metadato;
+    }
+    
+    for(size_t i = 0; i < del_metadato->n_metadatos; i++){
+
+        if(strcmp(del_metadato->columna[i],columna) == 0){
+            del_metadato->columna[i] = {'\0'};
+            del_metadato->tipo[i] = {'\0'};
+            return del_metadato;
+        }
+
+        if(strcmp(del_metadato->columna[i],'\0') == 0){
+            printf("Columna vacía \n");
+            return del_metadato;
+        }
+
+    }
+    
+}
+
+void freeMetadato(Metadato my_metadato){
+    free(my_metadato);
+    my_metadato = NULL;
 }

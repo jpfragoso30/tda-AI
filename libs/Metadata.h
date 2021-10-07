@@ -19,8 +19,10 @@ Metadato addMetadato(size_t n_metadatos);
 void setMetadato(Metadato emp_metadato);
 
 //Delete
-Metadato deleteMetadato(Metadato del_metadato);
-//se necesita un free()
+Metadato deleteMetadato(Metadato del_metadato, char *columna);
+
+//Free
+void freeMetadato(Metadato my_metadato);
 
 //Archivos
 Metadato guardarMetadatos(Metadato nuevosMetadatos, size_t n_metadatos);
