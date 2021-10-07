@@ -2,16 +2,10 @@
 #include <stdlib.h>
 
 #include "../libs/Metadata.h" 
-
-struct _metadato
-{
-    char **columna;
-    char **tipo;
-    size_t n_metadatos;
-    float *contenido;
-};
+#include "./Metadata.c"
 
 Metadato addMetadato(size_t n_metadatos){
+    char tipo[] = "FLOAT";
     Metadato new_meta = NULL;
     new_meta = malloc(sizeof(struct _metadato)); 
 
@@ -19,15 +13,18 @@ Metadato addMetadato(size_t n_metadatos){
     if(!new_meta) return NULL;
 
     new_meta->contenido = calloc(n_metadatos,sizeof(float));
+    new_meta->contenido = calloc(n_metadatos,sizeof(tipo));
     new_meta->n_metadatos = n_metadatos;
+    
 
     return new_meta;
 }
 
 void setMetadato(Metadato emp_metadato){
     for(size_t i = 0; i < emp_metadato->n_metadatos; i++){
-        printf("Add: \n");
-        scanf("%f", &emp_metadato->conenido[i]);
+        emp_metadato->tipo[i] = "FLOAT";
+        printf("Contenido: \n");
+        scanf("%f", &emp_metadato->contenido[i]);
     }
 }
 
@@ -36,4 +33,3 @@ Metadato deleteMetadato(Metadato del_metadato){
     del_metadato = NULL;
     return del_metadato;
 }
-
