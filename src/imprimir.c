@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "./Metadata.c"
 
-void printTable(Table *myTable)
+void printTable(Metadato myTable)
 {
-    for (size_t n = 0; n < mytable->elements; n++)
+    for (size_t n = 0; n < getNumberMetadatos(myTable); n++)
     {
-        printf("\tData Type: %s\n\n\tValue: %s\n", myTable->datatype[n], myTable->values[n]);
+        printf("\tColumna: %s\n\n\tTipo: %s\n", getMetadato(myTable, "columna", n), getMetadato(myTable, "tipo", n));
     }
 };

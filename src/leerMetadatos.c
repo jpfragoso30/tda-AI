@@ -1,29 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "./Metadata.c"
-#include "./guardarMetadatos.c" //func cerrar archivo
-
-Metadato leerMetadatos(Metadato nuevosMetadatos, FILE *archivo)
-{
-    char *nombreArchivo = NULL;
-    Metadato *nuevosMetadatos = NULL;
-
-    puts("Nombre del Archivo para leer los metadatos:");
-    gets(nombreArchivo);
-
-    archivo = abrirArchivoLectura(nombreArchivo);
-    nuevosMetadatos = recibirMetadatos(archivo, nuevosMetadatos);
-    archivo = cerrarArchivo(archivo);
-
-    return nuevosMetadatos;
-}
 
 FILE *abrirArchivoLectura(char *nombreArchivo)
 {
     FILE *archivo = NULL;
 
-    archivo = fopen(nombreArchivo, 'rt');
+    archivo = fopen(nombreArchivo, "rt");
 
     if (archivo != NULL)
     {
@@ -36,9 +21,8 @@ FILE *abrirArchivoLectura(char *nombreArchivo)
     }
 }
 
-Metadato *recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
+Metadato recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
 {
-    Metadato *metadatosEntrantes = NULL;
     size_t it = 0;
     //funcion para inicializar lista de metadatos
     do
@@ -49,4 +33,18 @@ Metadato *recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
     } while (feof(archivo) == 0);
 
     return metadatosEntrantes;
+}
+
+Metadato leerMetadatos(Metadato nuevosMetadatos, FILE *archivo)
+{
+    char *nombreArchivo = NULL;
+
+    puts("Nombre del Archivo para leer los metadatos:");
+    gets(nombreArchivo);
+
+    archivo = abrirArchivoLectura(nombreArchivo);
+    nuevosMetadatos = recibirMetadatos(archivo, nuevosMetadatos);
+    archivo = cerrarArchivo(archivo);
+
+    return nuevosMetadatos;
 }

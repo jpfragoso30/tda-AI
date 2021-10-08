@@ -6,15 +6,33 @@ All: .PHONY unity.o
 	@echo "Compiling..."
 	@echo ${SOURCES}
 
-app:| ./Metadata.o #...todos los .o necesarios (tambien despues de gcc ...) de implementacion
-	gcc -o app ./Metadata.o
+app:| ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
+	gcc -o app ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
 	mv *.o bins
 	mv app targets
 
-test:| ./unity.o ./test_Metadata.o ./Metadata.o
-	gcc -o test ./unity.o ./test_Metadata.o ./Metadata.o
+test:| ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
+	gcc -o test ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
 	mv *.o bins
 	mv test targets
+
+_main.o: ./src/_main.c
+	gcc -c ./src/_main.c
+
+agregarMetadatos.o: ./src/agregarMetadatos.c
+	gcc -c ./src/agregarMetadatos.c
+
+guardarMetadatos.o: ./src/guardarMetadatos.c
+	gcc -c ./src/guardarMetadatos.c
+
+imprimir.o: ./src/imprimir.c
+	gcc -c ./src/imprimir.c
+
+leerMetadatos.o: ./src/leerMetadatos.c
+	gcc -c ./src/leerMetadatos.c
+
+menuopciones.o: ./src/menuopciones.c
+	gcc -c ./src/menuopciones.c
 
 Metadata.o: ./src/Metadata.c
 	gcc -c ./src/Metadata.c
