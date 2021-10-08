@@ -16,7 +16,7 @@ typedef struct _metadato *Metadato;
 Metadato addMetadato(size_t n_metadatos);
 
 //Setter
-void setMetadato(Metadato emp_metadato);
+Metadato setMetadato(Metadato emp_metadato);
 
 //Getter
 char *getColumna(Metadato metadatoIn, size_t index);
@@ -28,7 +28,7 @@ char *getMetadato(Metadato metadatoIn, char *modo, size_t indice);
 Metadato deleteMetadato(Metadato del_metadato, char *columna);
 
 //Free
-void freeMetadato(Metadato my_metadato);
+Metadato freeMetadato(Metadato my_metadato);
 
 //Archivos
 Metadato guardarMetadatos(Metadato nuevosMetadatos, size_t n_metadatos);

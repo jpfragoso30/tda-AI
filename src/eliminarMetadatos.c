@@ -30,8 +30,10 @@ Metadato deleteMetadato(Metadato del_metadato, char *columna)
     return del_metadato;
 }
 
-void freeMetadato(Metadato my_metadato)
+Metadato freeMetadato(Metadato my_metadato)
 {
     free(my_metadato);
     my_metadato = NULL;
+
+    return my_metadato;
 }

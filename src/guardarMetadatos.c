@@ -38,14 +38,15 @@ FILE *abrirArchivo(char *nombreArchivo)
 
 FILE *escribirArchivo(FILE *archivo, Metadato nuevosMetadatos, size_t n_metadatos)
 {
-    for (int i = 0; i < n_metadatos; i++)
+    for (size_t i = 0; i < n_metadatos; i++)
     {
         char *datoEntrante = NULL;
-        datoEntrante = malloc((strlen(nuevosMetadatos->columna[i]) + 1 + strlen(nuevosMetadatos->tipo[i]) + 1) * 1 * sizeof(char *));
+        datoEntrante = malloc((strlen(nuevosMetadatos->columna[i]) + 1 + strlen(nuevosMetadatos->tipo[i]) + 1) * 1 * sizeof(char));
 
-        datoEntrante = strcat(nuevosMetadatos->columna[i], ",");
-        datoEntrante = strcat(datoEntrante, nuevosMetadatos->tipo[i]);
-        datoEntrante = strcat(datoEntrante, "\n");
+        strcpy(datoEntrante, nuevosMetadatos->columna[i]);
+        strcat(datoEntrante, ",");
+        strcat(datoEntrante, nuevosMetadatos->tipo[i]);
+        strcat(datoEntrante, "\0");
 
         fputs(datoEntrante, archivo);
     }

@@ -4,11 +4,12 @@
 #include "../libs/Metadata.h"
 #include "../libs/unity.h"
 
-#define NOMBRE_ARCHIVO "prueba.txt"
+#define NOMBRE_ARCHIVO "./tests/prueba.txt"
+#define NOMBRE_ARCHIVO_INVALIDO "/asd/asji?-2912.tsj"
 
-void test_abrirArchivo(void)
+void test_abrirArchivoValido(void)
 {
-    puts("Testing Abrir Archivo Prueba");
+    puts("Abrir Archivo (NOMBRE VALIDO)");
 
     //initialize testing variable
     FILE *archivo = NULL;
@@ -21,4 +22,79 @@ void test_abrirArchivo(void)
 
     // to prevent anything
     fclose(archivo);
+}
+
+void test_abrirArchivoInvalido(void)
+{
+    puts("Abrir Archivo (NOMBRE INVALIDO)");
+
+    //initialize testing variable
+    FILE *archivo = NULL;
+
+    //function to test
+    archivo = abrirArchivo(NOMBRE_ARCHIVO_INVALIDO);
+
+    //archivo doesnt exist, so NULL expected
+    TEST_ASSERT_NULL(archivo);
+
+    // to prevent anything
+    fclose(archivo);
+}
+
+void test_escribirArchivo(void)
+{
+    puts("Escribir Archivo");
+
+    //initialize testing variable
+    FILE *archivo = NULL;
+    Metadato metadatoPrueba = NULL;
+    size_t n_metadatos = 2;
+
+    //pre-requisite
+    archivo = abrirArchivo(NOMBRE_ARCHIVO);
+    metadatoPrueba = addMetadato(n_metadatos);
+    metadatoPrueba = setMetadato(metadatoPrueba);
+
+    //function to test
+    archivo = escribirArchivo(archivo, metadatoPrueba, n_metadatos);
+
+    //archivo exists, so NOT NULL expected after attempting to write on it
+    TEST_ASSERT_NOT_NULL(archivo);
+
+    // close file
+    archivo = cerrarArchivo(archivo);
+}
+
+void test_cerrarArchivoValido(void)
+{
+    puts("Cerrar Archivo (VALIDO)");
+
+    //initialize testing variable
+    FILE *archivo = NULL;
+
+    //pre-requisite
+    archivo = abrirArchivo(NOMBRE_ARCHIVO);
+
+    //function to test
+    archivo = cerrarArchivo(archivo);
+
+    //archivo exists, so NULL expected when closing it
+    TEST_ASSERT_NULL(archivo);
+}
+
+void test_cerrarArchivoInvalido(void)
+{
+    puts("Cerrar Archivo (INVALIDO)");
+
+    //initialize testing variable
+    FILE *archivo = NULL;
+
+    //pre-requisite
+    archivo = abrirArchivo(NOMBRE_ARCHIVO_INVALIDO);
+
+    //function to test
+    archivo = cerrarArchivo(archivo);
+
+    //archivo doesnt exist, but NULL expected when trying to close it
+    TEST_ASSERT_NULL(archivo);
 }

@@ -19,7 +19,7 @@ void test_addMetadato(void)
     Metadato myMeta = NULL;
     myMeta = addMetadato(EXPSIZE);
     TEST_ASSERT_NOT_NULL(myMeta);
-    freeMetadato(myMeta);
+    myMeta = freeMetadato(myMeta);
 }
 
 void test_setMetadato(void)
@@ -27,10 +27,10 @@ void test_setMetadato(void)
     printf("Test setMetadato\n");
     Metadato myMeta = NULL;
     myMeta = addMetadato(1);
-    setMetadato(myMeta);
+    myMeta = setMetadato(myMeta);
     TEST_ASSERT_EQUAL_STRING(COLUMNA, getColumna(myMeta,0));
     TEST_ASSERT_EQUAL_STRING(TIPO, getTipo(myMeta,0));
-    freeMetadato(myMeta);
+    myMeta = freeMetadato(myMeta);
 }
 
 void test_deleteMetadato(void)
@@ -38,11 +38,11 @@ void test_deleteMetadato(void)
     printf("Test deleteMetadato\n");
     Metadato myMeta = NULL;
     myMeta = addMetadato(1);
-    setMetadato(myMeta);
+    myMeta = setMetadato(myMeta);
     myMeta = deleteMetadato(myMeta, ELIMINARCOLUMNA);
     TEST_ASSERT_EQUAL_STRING("\0", getColumna(myMeta,0));
     TEST_ASSERT_EQUAL_STRING("\0", getTipo(myMeta,0));
-    freeMetadato(myMeta);
+    myMeta = freeMetadato(myMeta);
 }
 
 void test_freeMetadato(void)
@@ -50,6 +50,6 @@ void test_freeMetadato(void)
     printf("Test freeMetadato\n");
     Metadato myMeta = NULL;
     myMeta = addMetadato(1);
-    freeMetadato(myMeta);
+    myMeta = freeMetadato(myMeta);
     TEST_ASSERT_NULL(myMeta);
 }
