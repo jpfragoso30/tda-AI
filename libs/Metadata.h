@@ -19,8 +19,10 @@ Metadato addMetadato(size_t n_metadatos);
 Metadato setMetadato(Metadato emp_metadato);
 
 //Getter
-char *getMetadato(Metadato metadatoIn, char *modo, size_t indice);
+char *getColumna(Metadato metadatoIn, size_t index);
+char *getTipo(Metadato metadatoIn, size_t index);
 size_t getNumberMetadatos(Metadato metadatoIn);
+char *getMetadato(Metadato metadatoIn, char *modo, size_t indice);
 
 //Delete
 Metadato deleteMetadato(Metadato del_metadato, char *columna);
