@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../libs/Metadata.h"
 #include "../libs/unity.h"
-#include "./test_agregarMetadatos.c"
+
+#include "../src/Metadata.c"
 
 // #include(s) for unit testing files for each .c
 #include "./test_agregarMetadatos.c"

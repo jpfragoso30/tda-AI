@@ -18,6 +18,10 @@ Metadato addMetadato(size_t n_metadatos);
 //Setter
 void setMetadato(Metadato emp_metadato);
 
+//Getter
+char *getMetadato(Metadato metadatoIn, char *modo, size_t indice);
+size_t getNumberMetadatos(Metadato metadatoIn);
+
 //Delete
 Metadato deleteMetadato(Metadato del_metadato, char *columna);
 
@@ -26,8 +30,16 @@ void freeMetadato(Metadato my_metadato);
 
 //Archivos
 Metadato guardarMetadatos(Metadato nuevosMetadatos, size_t n_metadatos);
+Metadato leerMetadatos(Metadato nuevosMetadatos, FILE *archivo);
 FILE *abrirArchivo(char *nombreArchivo);
+FILE *abrirArchivoLectura(char *nombreArchivo);
 FILE *escribirArchivo(FILE *archivo, Metadato nuevosMetadatos, size_t n_metadatos);
+Metadato *recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes);
 FILE *cerrarArchivo(FILE *archivo);
+
+//Imprimir
+void printTable(Metadato myTable);
+void Menu1();
+void Menu2();
 
 #endif

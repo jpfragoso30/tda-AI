@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "./Metadata.c"
 
@@ -22,7 +23,7 @@ FILE *abrirArchivo(char *nombreArchivo)
 {
     FILE *archivo = NULL;
 
-    archivo = fopen(nombreArchivo, 'wt');
+    archivo = fopen(nombreArchivo, "wt");
 
     if (archivo != NULL)
     {
@@ -42,9 +43,9 @@ FILE *escribirArchivo(FILE *archivo, Metadato nuevosMetadatos, size_t n_metadato
         char *datoEntrante = NULL;
         datoEntrante = malloc((strlen(nuevosMetadatos->columna[i]) + 1 + strlen(nuevosMetadatos->tipo[i]) + 1) * 1 * sizeof(char *));
 
-        datoEntrante = strcat(nuevosMetadatos->columna[i], ',');
+        datoEntrante = strcat(nuevosMetadatos->columna[i], ",");
         datoEntrante = strcat(datoEntrante, nuevosMetadatos->tipo[i]);
-        datoEntrante = strcat(datoEntrante, '\n');
+        datoEntrante = strcat(datoEntrante, "\n");
 
         fputs(datoEntrante, archivo);
     }

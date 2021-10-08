@@ -6,15 +6,18 @@ All: .PHONY unity.o
 	@echo "Compiling..."
 	@echo ${SOURCES}
 
-app:| ./Metadata.o #...todos los .o necesarios (tambien despues de gcc ...) de implementacion
-	gcc -o app ./Metadata.o
+app:| ./Metadata.o ./_main.o
+	gcc -o app ./Metadata.o ./_main.o
 	mv *.o bins
 	mv app targets
 
-test:| ./unity.o ./test_Metadata.o ./Metadata.o
-	gcc -o test ./unity.o ./test_Metadata.o ./Metadata.o
+test:| ./Metadata.o ./test_Metadata.o ./unity.o
+	gcc -o test ./Metadata.o ./test_Metadata.o ./unity.o
 	mv *.o bins
 	mv test targets
+
+_main.o: ./src/_main.c
+	gcc -c ./src/_main.c
 
 Metadata.o: ./src/Metadata.c
 	gcc -c ./src/Metadata.c
