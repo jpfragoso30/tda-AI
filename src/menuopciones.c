@@ -41,11 +41,12 @@ int main (void)
           {
             case 1:
             //Add function
-            printf("Insert Add function here\n");
+            addMetadato(size);
+            setMetadato(myMetadata);
             break;
             case 2:
             //Delete function
-            printf("Insert Delete function here\n");
+            myMetadata = deleteMetadato(myMetadata, columna);
             break;
           }
         }while (option2 != 3);
