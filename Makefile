@@ -6,13 +6,13 @@ All: .PHONY unity.o
 	@echo "Compiling..."
 	@echo ${SOURCES}
 
-app:| ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
-	gcc -o app ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
+app:| ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
+	gcc -o app ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
 	mv *.o bins
 	mv app targets
 
-test:| ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
-	gcc -o test ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o leerMetadatos.o menuopciones.o
+test:| ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
+	gcc -o test ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
 	mv *.o bins
 	mv test targets
 
@@ -30,6 +30,9 @@ imprimir.o: ./src/imprimir.c
 
 leerMetadatos.o: ./src/leerMetadatos.c
 	gcc -c ./src/leerMetadatos.c
+
+eliminarMetadatos.o: ./src/eliminarMetadatos.c
+	gcc -c ./src/eliminarMetadatos.c
 
 menuopciones.o: ./src/menuopciones.c
 	gcc -c ./src/menuopciones.c

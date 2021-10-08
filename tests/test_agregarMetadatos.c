@@ -5,7 +5,6 @@
 #include "../libs/unity.h"
 
 #include "../libs/Metadata.h"
-#include "../src/Metadata.c"
 
 #define EXPSIZE 5
 #define COLUMNA "TestColumna"

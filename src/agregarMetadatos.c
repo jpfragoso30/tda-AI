@@ -49,3 +49,13 @@ size_t getNumberMetadatos(Metadato metadatoIn)
 {
     return metadatoIn->n_metadatos;
 }
+
+char *getMetadato(Metadato metadatoIn, char *modo, size_t indice)
+{
+    if (strcmp(modo, "columna") == 0)
+        return metadatoIn->columna[indice];
+    else if (strcmp(modo, "tipo") == 0)
+        return metadatoIn->tipo[indice];
+    else
+        return NULL;
+}
