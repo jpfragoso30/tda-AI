@@ -24,13 +24,19 @@ int main(void)
     // RUN_TEST(functions..., __LINE__);
 
     //agregar metadatos
-    RUN_TEST(test_addMetadato);
-    RUN_TEST(test_setMetadato);
-    RUN_TEST(test_deleteMetadato);
-    RUN_TEST(test_freeMetadato);
+    //RUN_TEST(test_addMetadato);
+    //RUN_TEST(test_setMetadato);
+    //RUN_TEST(test_deleteMetadato);
+    //RUN_TEST(test_freeMetadato);
 
     //guardar metadatos
-    RUN_TEST(test_abrirArchivo);
+    RUN_TEST(test_abrirArchivoValido);
+    RUN_TEST(test_abrirArchivoInvalido);
+
+    RUN_TEST(test_escribirArchivo);
+
+    RUN_TEST(test_cerrarArchivoValido);
+    RUN_TEST(test_cerrarArchivoInvalido);
 
     return UNITY_END();
 }
