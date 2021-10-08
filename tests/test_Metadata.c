@@ -21,8 +21,8 @@ int main(void)
 
     // RUN_TEST(functions..., __LINE__);
     RUN_TEST(test_addMetadato);
-    RUN_TEST(test_setMetadato);
-    RUN_TEST(test_deleteMetadato);
+    //RUN_TEST(test_setMetadato);
+    //RUN_TEST(test_deleteMetadato);
     RUN_TEST(test_freeMetadato);
 
     return UNITY_END();

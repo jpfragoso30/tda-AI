@@ -24,6 +24,11 @@ Metadato deleteMetadato(Metadato del_metadato, char *columna);
 //Free
 void freeMetadato(Metadato my_metadato);
 
+char* getColumna(Metadato my_metadato, int index);
+
+char* getTipo(Metadato my_metadato, int index);
+
+
 //Archivos
 Metadato guardarMetadatos(Metadato nuevosMetadatos, size_t n_metadatos);
 FILE *abrirArchivo(char *nombreArchivo);

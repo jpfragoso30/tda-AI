@@ -55,3 +55,11 @@ void freeMetadato(Metadato my_metadato){
     free(my_metadato);
     my_metadato = NULL;
 }
+
+char* getColumna(Metadato my_metadato, int index){
+    return my_metadato->columna[index];
+}
+
+char* getTipo(Metadato my_metadato, int index){
+    return my_metadato->tipo[index];
+}
