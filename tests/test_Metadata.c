@@ -4,7 +4,7 @@
 #include "../libs/unity.h"
 
 #include "../src/Metadata.c"
-
+#include "../libs/Metadata.h"
 
 // #include(s) for unit testing files for each .c
 #include "./test_agregarMetadatos.c"
