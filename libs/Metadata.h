@@ -34,7 +34,7 @@ Metadato leerMetadatos(Metadato nuevosMetadatos, FILE *archivo);
 FILE *abrirArchivo(char *nombreArchivo);
 FILE *abrirArchivoLectura(char *nombreArchivo);
 FILE *escribirArchivo(FILE *archivo, Metadato nuevosMetadatos, size_t n_metadatos);
-Metadato *recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes);
+Metadato recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes);
 FILE *cerrarArchivo(FILE *archivo);
 
 //Imprimir

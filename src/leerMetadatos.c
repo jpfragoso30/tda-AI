@@ -21,7 +21,7 @@ FILE *abrirArchivoLectura(char *nombreArchivo)
     }
 }
 
-Metadato *recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
+Metadato recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
 {
     size_t it = 0;
     //funcion para inicializar lista de metadatos

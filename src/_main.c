@@ -39,9 +39,11 @@ int main(void)
                     {
                         size_t elements;
                         char *columna;
+                        char *trash;
 
                     case 1:
                         //Add function
+                        scanf("%s", trash);
                         scanf("Elements: %zd", &elements);
                         addMetadato(elements);
                         setMetadato(tablaMetadatos);
