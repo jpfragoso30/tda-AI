@@ -9,6 +9,8 @@ Metadato addMetadato(size_t n_metadatos)
 {
     Metadato new_meta = NULL;
     new_meta = malloc(sizeof(struct _metadato));
+    new_meta->columna = malloc(sizeof(char *) * n_metadatos);
+    new_meta->tipo = malloc(sizeof(char *) * n_metadatos);
 
     //Validación
     if (!new_meta)
@@ -19,17 +21,20 @@ Metadato addMetadato(size_t n_metadatos)
     return new_meta;
 }
 
-void setMetadato(Metadato emp_metadato)
+Metadato setMetadato(Metadato emp_metadato)
 {
     for (size_t i = 0; i < emp_metadato->n_metadatos; i++)
     {
-
+        emp_metadato->columna[i] = malloc(sizeof(char) * 32);
         printf("Columna: \n");
-        scanf("%s", emp_metadato->columna[i]);
+        gets(emp_metadato->columna[i]);
 
+        emp_metadato->tipo[i] = malloc(sizeof(char) * 16);
         printf("Tipo: \n");
-        scanf("%s", emp_metadato->tipo[i]);
+        gets(emp_metadato->tipo[i]);
     }
+
+    return emp_metadato;
 }
 
 char *getMetadato(Metadato metadatoIn, char *modo, size_t indice)
@@ -72,8 +77,10 @@ Metadato deleteMetadato(Metadato del_metadato, char *columna)
     return del_metadato;
 }
 
-void freeMetadato(Metadato my_metadato)
+Metadato freeMetadato(Metadato my_metadato)
 {
     free(my_metadato);
     my_metadato = NULL;
+
+    return my_metadato;
 }
