@@ -5,6 +5,7 @@
 #include "../libs/unity.h"
 
 #include "../libs/Metadata.h"
+//#include "../src/Metadata.c"
 
 #define EXPSIZE 5
 #define COLUMNA "TestColumna"
@@ -27,8 +28,8 @@ void test_setMetadato(void)
     Metadato myMeta = NULL;
     myMeta = addMetadato(1);
     setMetadato(myMeta);
-    TEST_ASSERT_EQUAL_STRING(COLUMNA, getMetadato(myMeta, "columna", 0));
-    TEST_ASSERT_EQUAL_STRING(TIPO, getMetadato(myMeta, "columna", 0));
+    TEST_ASSERT_EQUAL_STRING(COLUMNA, getColumna(myMeta,0));
+    TEST_ASSERT_EQUAL_STRING(TIPO, getTipo(myMeta,0));
     freeMetadato(myMeta);
 }
 
@@ -39,8 +40,8 @@ void test_deleteMetadato(void)
     myMeta = addMetadato(1);
     setMetadato(myMeta);
     myMeta = deleteMetadato(myMeta, ELIMINARCOLUMNA);
-    TEST_ASSERT_EQUAL_STRING("\0", getMetadato(myMeta, "columna", 0));
-    TEST_ASSERT_EQUAL_STRING("\0", getMetadato(myMeta, "columna", 0));
+    TEST_ASSERT_EQUAL_STRING("\0", getColumna(myMeta,0));
+    TEST_ASSERT_EQUAL_STRING("\0", getTipo(myMeta,0));
     freeMetadato(myMeta);
 }
 

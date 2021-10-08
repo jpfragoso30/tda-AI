@@ -32,48 +32,15 @@ void setMetadato(Metadato emp_metadato)
     }
 }
 
-char *getMetadato(Metadato metadatoIn, char *modo, size_t indice)
-{
-    if (strcmp(modo, "columna") == 0)
-        return metadatoIn->columna[indice];
-    else if (strcmp(modo, "tipo") == 0)
-        return metadatoIn->tipo[indice];
-    else
-        return NULL;
-};
+char *getColumna(Metadato metadatoIn, size_t index){
+    return metadatoIn->columna[index];
+}
+
+char *getTipo(Metadato metadatoIn, size_t index){
+    return metadatoIn->tipo[index];
+}
 
 size_t getNumberMetadatos(Metadato metadatoIn)
 {
     return metadatoIn->n_metadatos;
-}
-
-Metadato deleteMetadato(Metadato del_metadato, char *columna)
-{
-    if (!del_metadato)
-    {
-        printf("Metadato vacío \n");
-        return del_metadato;
-    }
-
-    for (size_t i = 0; i < del_metadato->n_metadatos; i++)
-    {
-
-        if (strcmp(del_metadato->columna[i], columna) == 0)
-        {
-            strcpy(del_metadato->columna[i], "\0");
-            strcpy(del_metadato->tipo[i], "\0");
-
-            return del_metadato;
-        }
-    }
-
-    printf("Columna no encontrada\n");
-
-    return del_metadato;
-}
-
-void freeMetadato(Metadato my_metadato)
-{
-    free(my_metadato);
-    my_metadato = NULL;
 }
