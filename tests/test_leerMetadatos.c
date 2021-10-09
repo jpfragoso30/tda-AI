@@ -47,7 +47,7 @@ void test_recibirMetadatos(void)
     //initialize testing variable
     FILE *archivo = NULL;
     Metadato metadatoEntrante = NULL;
-    size_t n_metadatos = 3;
+    size_t n_metadatos = 2;
 
     //pre-requisites
     metadatoEntrante = addMetadato(n_metadatos);
@@ -61,10 +61,8 @@ void test_recibirMetadatos(void)
     TEST_ASSERT_EQUAL_STRING(TIPO_FLOAT, getTipo(metadatoEntrante, 0));
     TEST_ASSERT_EQUAL_STRING("edad", getColumna(metadatoEntrante, 1));
     TEST_ASSERT_EQUAL_STRING(TIPO_FLOAT, getTipo(metadatoEntrante, 1));
-    TEST_ASSERT_EQUAL_STRING("ingresos", getColumna(metadatoEntrante, 2));
-    TEST_ASSERT_EQUAL_STRING(TIPO_FLOAT, getTipo(metadatoEntrante, 2));
 
     //cleanup
-    cerrarArchivo(archivo);
+    archivo = cerrarArchivo(archivo);
     metadatoEntrante = freeMetadato(metadatoEntrante);
 }
