@@ -21,7 +21,7 @@ void test_abrirArchivoValido(void)
     TEST_ASSERT_NOT_NULL(archivo);
 
     // to prevent anything
-    fclose(archivo);
+    archivo = cerrarArchivo(archivo);
 }
 
 void test_abrirArchivoInvalido(void)
@@ -38,7 +38,7 @@ void test_abrirArchivoInvalido(void)
     TEST_ASSERT_NULL(archivo);
 
     // to prevent anything
-    fclose(archivo);
+    archivo = cerrarArchivo(archivo);
 }
 
 void test_escribirArchivo(void)

@@ -25,35 +25,35 @@ int main(void)
 
     //agregar metadatos
     puts("//////////////////");
-    //RUN_TEST(test_addMetadato);
+    RUN_TEST(test_addMetadato);
     puts("//////////////////");
-    //RUN_TEST(test_setMetadato);
+    RUN_TEST(test_setMetadato);
     puts("//////////////////");
 
     //guardar metadatos
-    //RUN_TEST(test_abrirArchivoValido);
+    RUN_TEST(test_abrirArchivoValido);
     puts("//////////////////");
-    //RUN_TEST(test_abrirArchivoInvalido);
+    RUN_TEST(test_abrirArchivoInvalido);
     puts("//////////////////");
-    //RUN_TEST(test_escribirArchivo);
+    RUN_TEST(test_escribirArchivo);
     puts("//////////////////");
-    //RUN_TEST(test_cerrarArchivoValido);
+    RUN_TEST(test_cerrarArchivoValido);
     puts("//////////////////");
-    //RUN_TEST(test_cerrarArchivoInvalido);
+    RUN_TEST(test_cerrarArchivoInvalido);
     puts("//////////////////");
 
     //leer metadatos
-    //RUN_TEST(test_abrirArchivoLecturaValido);
+    RUN_TEST(test_abrirArchivoLecturaValido);
     puts("//////////////////");
-    //RUN_TEST(test_abrirArchivoLecturaInvalido);
+    RUN_TEST(test_abrirArchivoLecturaInvalido);
     puts("//////////////////");
     RUN_TEST(test_recibirMetadatos);
     puts("//////////////////");
 
     //eliminar metadatos
-    //RUN_TEST(test_deleteMetadato);
+    RUN_TEST(test_deleteMetadato);
     puts("//////////////////");
-    //RUN_TEST(test_freeMetadato);
+    RUN_TEST(test_freeMetadato);
     puts("//////////////////");
 
     return UNITY_END();

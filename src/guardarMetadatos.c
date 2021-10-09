@@ -28,7 +28,6 @@ FILE *escribirArchivo(FILE *archivo, Metadato nuevosMetadatos, size_t n_metadato
         fprintf(archivo, "%s,%s\n", nuevosMetadatos->columna[i], nuevosMetadatos->tipo[i]);
         printf("Iteracion %zd: %s,%s\n", i, nuevosMetadatos->columna[i], nuevosMetadatos->tipo[i]);
     }
-    puts("????");
 
     return archivo;
 }
