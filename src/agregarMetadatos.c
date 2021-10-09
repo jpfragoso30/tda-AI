@@ -37,11 +37,13 @@ Metadato setMetadato(Metadato emp_metadato)
     return emp_metadato;
 }
 
-char *getColumna(Metadato metadatoIn, size_t index){
+char *getColumna(Metadato metadatoIn, size_t index)
+{
     return metadatoIn->columna[index];
 }
 
-char *getTipo(Metadato metadatoIn, size_t index){
+char *getTipo(Metadato metadatoIn, size_t index)
+{
     return metadatoIn->tipo[index];
 }
 

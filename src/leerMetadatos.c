@@ -23,18 +23,30 @@ FILE *abrirArchivoLectura(char *nombreArchivo)
 
 Metadato recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
 {
-    size_t it = 0;
-    //funcion para inicializar lista de metadatos
-    do
+    char delimiter[2] = ",";
+    char input[50];
+    char *parsedInput;
+
+    for (size_t it = 0; it < metadatosEntrantes->n_metadatos; it++)
     {
-        fscanf(archivo, "%s,%s\n", metadatosEntrantes->columna[it], metadatosEntrantes->tipo[it]);
-        //como el tamanio no debe ser estatico, funcion que los agrega a la lista dinamica
-        it++;
-    } while (feof(archivo) == 0);
+        metadatosEntrantes->columna[it] = malloc(sizeof(char) * 32);
+        metadatosEntrantes->tipo[it] = malloc(sizeof(char) * 16);
+
+        fgets(input, 50, archivo);
+
+        parsedInput = strtok(input, delimiter);
+        metadatosEntrantes->columna[it] = parsedInput;
+        strcat(metadatosEntrantes->columna[it], "\0");
+        parsedInput = strtok(NULL, delimiter);
+        metadatosEntrantes->tipo[it] = parsedInput;
+        strcat(metadatosEntrantes->tipo[it], "\0");
+        parsedInput = strtok(NULL, delimiter);
+    };
 
     return metadatosEntrantes;
 }
 
+//Wrapper para implementacion
 Metadato leerMetadatos(Metadato nuevosMetadatos, FILE *archivo)
 {
     char *nombreArchivo = NULL;

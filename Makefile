@@ -1,21 +1,33 @@
-SOURCES:= ${wildcard ./src/*.c} 
+SOURCES:= ${wildcard ./*.c} 
 
-All: .PHONY unity.o
+#dependencies lists
+METADATA_DEPENDENCY = ./Metadata.o
+
+METADATA_FUNCTIONAL_DEPENDENCIES = ./agregarMetadatos.o ./guardarMetadatos.o ./eliminarMetadatos.o ./leerMetadatos.o
+METADATA_DISPLAY_DEPENDENCIES = ./imprimir.o ./menuopciones.o
+
+IMPLEMENTATION_DEPENDENCIES = ./_main.o
+TESTING_DEPENDENCIES = ./test_Metadata.o ./unity.o
+
+#compiling notification
+All: .PHONY Metadata.o
 
 .PHONY:
 	@echo "Compiling..."
 	@echo ${SOURCES}
 
-app:| ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
-	gcc -o app ./Metadata.o ./_main.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
+#executables
+app:| $(METADATA_DEPENDENCY) $(IMPLEMENTATION_DEPENDENCIES) $(METADATA_FUNCTIONAL_DEPENDENCIES) $(METADATA_DISPLAY_DEPENDENCIES)
+	gcc -o app $(METADATA_DEPENDENCY) $(IMPLEMENTATION_DEPENDENCIES) $(METADATA_FUNCTIONAL_DEPENDENCIES) $(METADATA_DISPLAY_DEPENDENCIES)
 	mv *.o bins
-	mv app targets
+	mv ./app targets
 
-test:| ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
-	gcc -o test ./Metadata.o ./test_Metadata.o ./unity.o agregarMetadatos.o guardarMetadatos.o imprimir.o eliminarMetadatos.o leerMetadatos.o menuopciones.o
+test:| $(METADATA_DEPENDENCY) $(TESTING_DEPENDENCIES) $(METADATA_FUNCTIONAL_DEPENDENCIES)
+	gcc -o test $(METADATA_DEPENDENCY) $(TESTING_DEPENDENCIES) $(METADATA_FUNCTIONAL_DEPENDENCIES)
 	mv *.o bins
-	mv test targets
+	mv ./test targets
 
+#objects
 _main.o: ./src/_main.c
 	gcc -c ./src/_main.c
 
@@ -46,11 +58,15 @@ test_Metadata.o: ./tests/test_Metadata.c
 unity.o: ./src/unity.c
 	gcc -c ./src/unity.c
 
+#clean files
 Clear_bins: ./bins/*
 	rm ./bins/*
 
 Clear_objects: ./*.o
 	rm ./*.o
+
+Clear_executables: ./test ./app
+	rm ./test ./app
 
 Clear_targets: ./targets/*
 	rm ./targets/*

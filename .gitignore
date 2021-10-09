@@ -1,0 +1,4 @@
+./bins
+./*.o
+test
+app
