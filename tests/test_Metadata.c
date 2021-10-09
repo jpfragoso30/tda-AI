@@ -8,6 +8,8 @@
 // #include(s) for unit testing files for each .c
 #include "./test_agregarMetadatos.c"
 #include "./test_guardarMetadatos.c"
+#include "./test_leerMetadatos.c"
+#include "./test_eliminarMetadatos.c"
 
 void setUp(void)
 {
@@ -21,22 +23,38 @@ int main(void)
 {
     UNITY_BEGIN();
 
-    // RUN_TEST(functions..., __LINE__);
-
     //agregar metadatos
-    RUN_TEST(test_addMetadato);
-    RUN_TEST(test_setMetadato);
-    RUN_TEST(test_deleteMetadato);
-    RUN_TEST(test_freeMetadato);
+    puts("//////////////////");
+    //RUN_TEST(test_addMetadato);
+    puts("//////////////////");
+    //RUN_TEST(test_setMetadato);
+    puts("//////////////////");
 
     //guardar metadatos
-    RUN_TEST(test_abrirArchivoValido);
-    RUN_TEST(test_abrirArchivoInvalido);
+    //RUN_TEST(test_abrirArchivoValido);
+    puts("//////////////////");
+    //RUN_TEST(test_abrirArchivoInvalido);
+    puts("//////////////////");
+    //RUN_TEST(test_escribirArchivo);
+    puts("//////////////////");
+    //RUN_TEST(test_cerrarArchivoValido);
+    puts("//////////////////");
+    //RUN_TEST(test_cerrarArchivoInvalido);
+    puts("//////////////////");
 
-    RUN_TEST(test_escribirArchivo);
+    //leer metadatos
+    //RUN_TEST(test_abrirArchivoLecturaValido);
+    puts("//////////////////");
+    //RUN_TEST(test_abrirArchivoLecturaInvalido);
+    puts("//////////////////");
+    RUN_TEST(test_recibirMetadatos);
+    puts("//////////////////");
 
-    RUN_TEST(test_cerrarArchivoValido);
-    RUN_TEST(test_cerrarArchivoInvalido);
+    //eliminar metadatos
+    //RUN_TEST(test_deleteMetadato);
+    puts("//////////////////");
+    //RUN_TEST(test_freeMetadato);
+    puts("//////////////////");
 
     return UNITY_END();
 }

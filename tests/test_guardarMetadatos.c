@@ -4,12 +4,12 @@
 #include "../libs/Metadata.h"
 #include "../libs/unity.h"
 
-#define NOMBRE_ARCHIVO "./tests/prueba.txt"
+#define NOMBRE_ARCHIVO "./tests/prueba.csv"
 #define NOMBRE_ARCHIVO_INVALIDO "/asd/asji?-2912.tsj"
 
 void test_abrirArchivoValido(void)
 {
-    puts("Abrir Archivo (NOMBRE VALIDO)");
+    printf("\t***(TEST) abrirArchivoValido***\n\n");
 
     //initialize testing variable
     FILE *archivo = NULL;
@@ -26,7 +26,7 @@ void test_abrirArchivoValido(void)
 
 void test_abrirArchivoInvalido(void)
 {
-    puts("Abrir Archivo (NOMBRE INVALIDO)");
+    printf("\t***(TEST) abrirArchivoInvalido***\n\n");
 
     //initialize testing variable
     FILE *archivo = NULL;
@@ -43,7 +43,7 @@ void test_abrirArchivoInvalido(void)
 
 void test_escribirArchivo(void)
 {
-    puts("Escribir Archivo");
+    printf("\t***(TEST) escribirArchivo***\n\n");
 
     //initialize testing variable
     FILE *archivo = NULL;
@@ -61,13 +61,14 @@ void test_escribirArchivo(void)
     //archivo exists, so NOT NULL expected after attempting to write on it
     TEST_ASSERT_NOT_NULL(archivo);
 
-    // close file
+    // cleanup
     archivo = cerrarArchivo(archivo);
+    metadatoPrueba = freeMetadato(metadatoPrueba);
 }
 
 void test_cerrarArchivoValido(void)
 {
-    puts("Cerrar Archivo (VALIDO)");
+    printf("\t***(TEST) cerrarArchivoValido***\n\n");
 
     //initialize testing variable
     FILE *archivo = NULL;
@@ -84,7 +85,7 @@ void test_cerrarArchivoValido(void)
 
 void test_cerrarArchivoInvalido(void)
 {
-    puts("Cerrar Archivo (INVALIDO)");
+    printf("\t***(TEST) cerrarArchivoInvalido***\n\n");
 
     //initialize testing variable
     FILE *archivo = NULL;
