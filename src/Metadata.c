@@ -35,12 +35,12 @@ Metadato setMetadato(Metadato emp_metadato)
     {
         emp_metadato->columna[i] = malloc(sizeof(char) * BUFSIZ);
         printf("Columna: \n");
-        fgets(emp_metadato->columna[i], sizeof(emp_metadato->columna[i]), stdin);
+        gets(emp_metadato->columna[i]);
         strcat(emp_metadato->columna[i], "\0");
 
         emp_metadato->tipo[i] = malloc(sizeof(char) * BUFSIZ);
         printf("Tipo: \n");
-        fgets(emp_metadato->tipo[i], sizeof(emp_metadato->tipo[i]), stdin);
+        gets(emp_metadato->tipo[i]);
         strcat(emp_metadato->tipo[i], "\0");
     }
 
