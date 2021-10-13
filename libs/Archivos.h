@@ -17,6 +17,14 @@
 
 //File has a type
 
+typedef enum
+{
+    ERROR_OK,
+    FILENAME_ERROR,
+    FILE_NOT_FOUND,
+    FILE_EMPTY,
+} ERROR_CODE;
+
 //Constructor
 FILE *abrirArchivo(char *nombreArchivo, char *modo);
 

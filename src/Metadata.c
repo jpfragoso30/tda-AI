@@ -64,10 +64,15 @@ size_t getNumberMetadatos(Metadato metadatoIn)
 
 void printTable(Metadato myTable)
 {
-    for (size_t n = 0; n < getNumberMetadatos(myTable); n++)
+    if (myTable)
     {
-        printf("\tColumna: %s\tTipo: %s\n", getColumna(myTable, n), getTipo(myTable, n));
+        for (size_t n = 0; n < getNumberMetadatos(myTable); n++)
+        {
+            printf("\tColumna: %s\tTipo: %s\n", getColumna(myTable, n), getTipo(myTable, n));
+        }
     }
+    else
+        printf("Metadatos no ha sido inicializado o no tiene elementos.\n");
 };
 
 Metadato deleteMetadato(Metadato del_metadato, char *columna)

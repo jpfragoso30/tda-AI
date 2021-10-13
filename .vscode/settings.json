@@ -2,6 +2,7 @@
     "files.associations": {
         "metadata.h": "c",
         "archivos.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "vista.h": "c"
     }
 }

@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Archivos.c"
-#include "Metadata.c"
-#include "Vista.c"
+#include "../libs/Archivos.h"
+#include "../libs/Metadata.h"
+#include "../libs/Vista.h"
 
 int main(void)
 {
