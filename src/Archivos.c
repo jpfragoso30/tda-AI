@@ -13,6 +13,21 @@ struct _metadato
     float *contenido;
 };
 
+static ERROR_CODE_ARCHIVOS Exists(FILE *archivoSospechoso)
+{
+    if (archivoSospechoso == NULL)
+    {
+        fprintf(stderr, "FILE NOT FOUND ERROR %d IN %s: LINE %d\n", FILE_NOT_FOUND, __FILE__, __LINE__);
+        return FILE_NOT_FOUND;
+    }
+    else
+        return FILE_OK;
+}
+
+// static ERROR_CODE_ARCHIVOS IsEmpty(FILE *archivoSospechoso)
+// {
+// }
+
 FILE *abrirArchivo(char *nombreArchivo, char *modo)
 {
     FILE *archivo = NULL;

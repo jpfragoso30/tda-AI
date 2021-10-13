@@ -19,11 +19,10 @@
 
 typedef enum
 {
-    ERROR_OK,
-    FILENAME_ERROR,
+    FILE_OK,
     FILE_NOT_FOUND,
     FILE_EMPTY,
-} ERROR_CODE;
+} ERROR_CODE_ARCHIVOS;
 
 //Constructor
 FILE *abrirArchivo(char *nombreArchivo, char *modo);
