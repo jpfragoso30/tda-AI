@@ -2,15 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Archivos.c"
-#include "Metadata.c"
-#include "Vista.c"
+#include "../libs/Archivos.h"
+#include "../libs/Metadata.h"
+#include "../libs/Vista.h"
 
 int main(void)
 {
     //Declaraciones
+    size_t elements;
     int option, option2;
+    char *columna, *trash;
     Metadato tablaMetadatos = NULL;
+
+    trash = malloc(sizeof(char) * BUFSIZ);
+    columna = malloc(sizeof(char) * BUFSIZ);
 
     system("clear");
     do
@@ -37,15 +42,12 @@ int main(void)
                     //Option selection
                     scanf("%d", &option2);
                     printf("\e[1;1H\e[2J");
+                    scanf("%s", trash);
                     switch (option2)
                     {
-                        size_t elements;
-                        char *columna;
-                        char *trash;
 
                     case 1:
                         //Add function
-                        scanf("%s", trash);
                         scanf("Elements: %zd", &elements);
                         addMetadato(elements);
                         setMetadato(tablaMetadatos);

@@ -12,6 +12,13 @@
 
 typedef struct _metadato *Metadato;
 
+typedef enum
+{
+    METADATA_OK,
+    METADATA_NOT_INITIALIZED,
+    METADATA_EMPTY,
+} ERROR_CODE_METADATA;
+
 //Constructor
 Metadato addMetadato(size_t n_metadatos);
 
