@@ -45,20 +45,14 @@ Metadato recibirMetadatos(FILE *archivo, Metadato metadatosEntrantes)
 
         metadatosEntrantes->columna[it] = malloc(sizeof(char) * BUFSIZ);
         parsedInput = strtok(input, delimiter);
-        metadatosEntrantes->columna[it] = parsedInput;
+        strcpy(metadatosEntrantes->columna[it], parsedInput);
         strcat(metadatosEntrantes->columna[it], "\0");
-
-        puts(getColumna(metadatosEntrantes, it));
 
         metadatosEntrantes->tipo[it] = malloc(sizeof(char) * BUFSIZ);
         parsedInput = strtok(NULL, delimiter);
-        metadatosEntrantes->tipo[it] = parsedInput;
-        strcat(metadatosEntrantes->tipo[it], "\0");
-
-        puts(getTipo(metadatosEntrantes, it));
+        strcpy(metadatosEntrantes->tipo[it], parsedInput);
+        (metadatosEntrantes->tipo[it])[strlen(metadatosEntrantes->tipo[it]) - 1] = '\0';
     };
-
-    printTable(metadatosEntrantes);
 
     return metadatosEntrantes;
 }
